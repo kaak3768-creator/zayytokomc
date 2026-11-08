@@ -1,0 +1,39 @@
+/* ZayyStore — putaran ke-4 (boost.js). Aman dihapus bersama boost.js + 2 barisnya di index.html (dan blok <nav class="zs-bnav">) */
+
+/* navigasi bawah (HP) */
+.zs-bnav{display:none}
+@media(max-width:700px){
+  .zs-bnav{position:fixed;left:10px;right:10px;bottom:10px;z-index:950;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:6px;border-radius:20px;
+    background:#0b2447e8;backdrop-filter:blur(12px);box-shadow:0 10px 30px #0008,inset 0 0 0 1px #ffffff26}
+  .zs-bnav a,.zs-bnav button{border:0;background:transparent;color:#cfe4ff;display:grid;justify-items:center;gap:2px;padding:7px 0 6px;border-radius:14px;text-decoration:none;
+    font:700 10.5px Poppins,sans-serif;cursor:pointer;transition:background .2s,transform .2s,color .2s}
+  .zs-bnav i{font-style:normal;font-size:21px;line-height:1;position:relative}
+  .zs-bnav a:active,.zs-bnav button:active{transform:scale(.92)}
+  .zs-bnav .on{background:#ffffff1f;color:#fff}
+  .zs-bnav i b{position:absolute;top:-6px;right:-12px;min-width:17px;height:17px;border-radius:9px;background:#ff3b6b;color:#fff;font:800 10px/17px Poppins,sans-serif;text-align:center;padding:0 4px}
+  .zs-bnav i b[data-n="0"]{display:none}
+  body{padding-bottom:84px}
+  .wa-float{display:none!important}
+  .zs-top{left:auto;right:14px;bottom:88px}
+  .zs-snd{bottom:88px!important;left:14px!important}
+}
+
+/* bagikan produk */
+.sv-card .share-btn{position:absolute;top:10px;right:54px;z-index:6;width:38px;height:38px;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;
+  background:#0b2447a8;backdrop-filter:blur(6px);color:#fff;font-size:17px;line-height:1;transition:transform .2s,background .2s}
+.sv-card .share-btn:hover{transform:scale(1.15);background:#1b8ff0}
+.deeplink-pulse{animation:dlPulse 1s ease-in-out 3}
+@keyframes dlPulse{0%,100%{box-shadow:0 0 0 0 #ffd23f00}50%{box-shadow:0 0 0 6px #ffd23fcc,0 0 40px #ffd23f88}}
+
+/* skeleton loading */
+.zs-skel{border-radius:22px;background:#ffffff14;overflow:hidden;min-height:360px;position:relative;box-shadow:inset 0 0 0 1px #ffffff22}
+.zs-skel:before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,#ffffff40 50%,transparent 70%);transform:translateX(-100%);animation:skel 1.4s infinite}
+.zs-skel i{display:block;margin:18px;border-radius:12px;background:#ffffff1c}
+.zs-skel i:nth-child(1){height:190px;margin-top:0;margin:0 0 18px;border-radius:0}.zs-skel i:nth-child(2){height:16px;width:55%}.zs-skel i:nth-child(3){height:12px;width:80%}.zs-skel i:nth-child(4){height:36px;width:40%}
+@keyframes skel{to{transform:translateX(100%)}}
+
+/* tombol suara */
+.zs-snd{position:fixed;left:18px;bottom:84px;z-index:900;width:44px;height:44px;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-size:19px;
+  background:#0b2447d9;color:#fff;box-shadow:0 6px 16px #0006,inset 0 0 0 1px #ffffff33;backdrop-filter:blur(6px);transition:transform .2s,background .2s}
+.zs-snd:hover{transform:scale(1.1)}.zs-snd.on{background:#16a34a}
+@media(prefers-reduced-motion:reduce){.zs-skel:before,.deeplink-pulse{animation:none!important}}
