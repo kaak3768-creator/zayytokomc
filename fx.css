@@ -1,0 +1,159 @@
+/* ZayyStore — efek tampilan & animasi (aman dihapus: hapus fx.css, fx.js dan 2 baris di index.html) */
+
+/* ===== KARTU PRODUK: tanpa cahaya pinggiran, diganti kilau menyapu ===== */
+.sv-card.product-card:before{display:none}
+.sv-card.product-card{overflow:hidden;--rx:0deg;--ry:0deg;
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.sv-card.product-card:hover,.sv-card.product-card.touch{
+  transform:perspective(800px) translateY(-8px) scale(1.03) rotateX(var(--rx)) rotateY(var(--ry));
+  box-shadow:0 22px 38px #00000040}
+.sv-card.product-card:active{transform:perspective(800px) translateY(-4px) scale(1.01)}
+.sv-card.product-card:after{content:"";position:absolute;top:-30%;left:-80%;width:48%;height:160%;z-index:5;pointer-events:none;
+  background:linear-gradient(105deg,transparent 0,#ffffff30 30%,#ffffffb8 50%,#ffffff30 70%,transparent 100%);
+  transform:skewX(-20deg);opacity:0}
+.sv-card.product-card:hover:after,.sv-card.product-card.touch:after{animation:cardShine .85s ease-out}
+@keyframes cardShine{0%{left:-80%;opacity:1}100%{left:140%;opacity:1}}
+.sv-card.product-card .sv-img img,.sv-card.product-card .sv-art{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.sv-card.product-card:hover .sv-img img,.sv-card.product-card:hover .sv-art{transform:scale(1.08)}
+.sv-hot .sv-card.product-card:hover,.sv-hot .sv-card.product-card.touch{box-shadow:0 0 0 3px #ffd23f,0 22px 38px #00000045}
+@media(max-width:700px){
+  .sv-card.product-card:hover{transform:none;box-shadow:0 12px 30px #00000030}
+  .sv-card.product-card.touch{transform:scale(1.02);box-shadow:0 14px 28px #0000003d}
+}
+
+/* ===== TAB KATEGORI (Semua, Skins, Mod premium, dll) ===== */
+.sv-tabs{gap:14px;padding:6px 4px 12px}
+.sv-tabs .filter{position:relative;overflow:hidden;width:120px;height:98px;border-radius:20px;border:2px solid #fff;
+  background:linear-gradient(180deg,#ffffff,#d9edff);color:#0a5aa3;font:700 13px Poppins,sans-serif;letter-spacing:.2px;
+  box-shadow:0 6px 0 #0a5aa3,0 16px 22px #0a2a5a33;gap:7px;
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s,color .25s}
+.sv-tabs .filter i{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:25px;line-height:1;
+  background:linear-gradient(135deg,#eaf6ff,#b5d9ff);box-shadow:inset 0 -3px 0 #98c6f3;
+  transition:transform .3s cubic-bezier(.3,1.6,.5,1),background .25s}
+.sv-tabs .filter:before{content:"";position:absolute;top:0;left:-90%;width:55%;height:100%;pointer-events:none;
+  background:linear-gradient(105deg,transparent,#ffffffcc,transparent);transform:skewX(-20deg);transition:left .6s}
+.sv-tabs .filter:hover{transform:translateY(-5px);box-shadow:0 11px 0 #0a5aa3,0 20px 26px #0a2a5a38}
+.sv-tabs .filter:hover:before{left:140%}
+.sv-tabs .filter:hover i{transform:translateY(-2px) rotate(-8deg) scale(1.14)}
+.sv-tabs .filter:active{transform:translateY(1px);box-shadow:0 3px 0 #0a5aa3}
+.sv-tabs .filter.active{background:linear-gradient(135deg,#0b4f8f,#1b8ff0);color:#fff;border-color:#9fd3ff;
+  box-shadow:0 6px 0 #06355f,0 16px 26px #0b4f8f55;transform:translateY(-3px)}
+.sv-tabs .filter.active:after{display:none}
+.sv-tabs .filter.active i{background:#ffffff33;box-shadow:inset 0 -3px 0 #ffffff26;animation:tabBob 2.2s ease-in-out infinite}
+.sv-tabs .filter.active:before{animation:tabShine 3.4s ease-in-out infinite}
+@keyframes tabBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px) rotate(-6deg)}}
+@keyframes tabShine{0%,55%{left:-90%}100%{left:140%}}
+.sv-subtabs{border:0;background:#ffffff2b;backdrop-filter:blur(6px);box-shadow:inset 0 0 0 1px #ffffff55;padding:8px 10px;gap:8px}
+.sv-subtabs button{font:700 13px Poppins,sans-serif;padding:9px 18px;border-radius:30px;background:#fff;color:#0a73c4;
+  box-shadow:0 3px 0 #bcd9f3;transition:transform .2s,box-shadow .2s,background .2s}
+.sv-subtabs button:hover{transform:translateY(-2px);box-shadow:0 5px 0 #bcd9f3}
+.sv-subtabs button.active{background:linear-gradient(135deg,#0b4f8f,#1b8ff0);color:#fff;box-shadow:0 3px 0 #06355f}
+@media(max-width:700px){.sv-tabs .filter{width:98px;height:86px;flex:0 0 auto;border-radius:16px;font-size:12px}.sv-tabs .filter i{width:38px;height:38px;font-size:21px;border-radius:12px}}
+
+/* ===== BANNER COLLAB ===== */
+.collab-banner{position:relative}
+.collab-banner img{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.collab-banner:hover img{transform:scale(1.012)}
+.collab-banner:after{content:"";position:absolute;left:14px;right:14px;top:0;bottom:0;border-radius:18px;pointer-events:none;
+  background:linear-gradient(105deg,transparent 42%,#ffffff55 50%,transparent 58%);background-size:260% 100%;background-position:150% 0;
+  animation:bnShine 5s ease-in-out infinite}
+@keyframes bnShine{0%,35%{background-position:150% 0}100%{background-position:-60% 0}}
+@media(max-width:700px){.collab-banner:after{left:10px;right:10px;border-radius:12px}}
+
+/* ===== TOMBOL & JUDUL ===== */
+.sv-hl{display:inline-block;animation:hlGlow 2.6s ease-in-out infinite}
+@keyframes hlGlow{0%,100%{filter:brightness(1) drop-shadow(0 0 0 #ffd23f00)}50%{filter:brightness(1.22) drop-shadow(0 0 14px #ffd23f99)}}
+.sv-cta,.primary-btn{position:relative;overflow:hidden}
+.sv-cta:before,.primary-btn:before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;pointer-events:none;
+  background:linear-gradient(105deg,transparent,#ffffff80,transparent);transform:skewX(-20deg);animation:btnShine 3.6s ease-in-out infinite}
+@keyframes btnShine{0%,60%{left:-80%}100%{left:140%}}
+.sv-pill{position:relative;overflow:hidden}
+.sv-pill:after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(105deg,transparent,#ffffff66,transparent);
+  transform:skewX(-20deg);animation:btnShine 4.5s ease-in-out infinite}
+.sv-hot-ic{display:inline-block;animation:fxFlame 1.6s ease-in-out infinite}
+@keyframes fxFlame{0%,100%{transform:scale(1) rotate(-4deg)}50%{transform:scale(1.15) rotate(5deg)}}
+
+/* ===== MUNCUL SAAT SCROLL ===== */
+.fx-pre{opacity:0}
+.fx-in{animation:fxUp .7s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:var(--fxd,0s)}
+@keyframes fxUp{from{opacity:0;transform:translateY(34px) scale(.97)}to{opacity:1;transform:none}}
+
+/* ===== PARTIKEL PIXEL MELAYANG ===== */
+.fx-bits{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.fx-bits i{position:absolute;bottom:-20px;left:var(--x);width:var(--s);height:var(--s);background:#ffffff80;border-radius:2px;
+  animation:fxRise var(--t) linear infinite;animation-delay:var(--d)}
+@keyframes fxRise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.8}90%{opacity:.6}100%{transform:translateY(-110vh) rotate(180deg);opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  .fx-in,.fx-bits i,.sv-hl,.sv-cta:before,.primary-btn:before,.sv-pill:after,.collab-banner:after,.sv-tabs .filter.active i,.sv-tabs .filter.active:before,.sv-hot-ic{animation:none!important}
+  .fx-pre{opacity:1}
+}
+
+/* ===== FOTO PRODUK: penuh 1 kotak, tanpa latar ===== */
+.sv-img.has-photo{display:block;background:#0b1d3a}
+.sv-img.has-photo:before{display:none}
+.sv-photo-bg{display:none!important}
+.sv-img .sv-photo{position:absolute!important;inset:0;z-index:1;width:100%!important;height:100%!important;max-width:none!important;
+  object-fit:cover;border-radius:0!important;box-shadow:none!important}
+.sv-img .sv-hot-tag,.sv-img .sv-bundle{z-index:3}
+
+/* ===== LABEL PROSES + RATING (di bawah gambar produk) ===== */
+.zs-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:0;margin:8px 0 4px}
+.zs-proc{display:inline-flex;align-items:center;gap:5px;font:800 11.5px Poppins,sans-serif;letter-spacing:.3px;white-space:nowrap}
+.zs-proc svg{width:15px;height:15px;flex:0 0 auto}
+.zs-proc.fast{color:#12a150}.zs-proc.fast svg{fill:#12a150;filter:drop-shadow(0 0 3px #12a15055)}
+.zs-proc.quick{color:#e5a000}.zs-proc.quick svg{color:#e5a000}
+.zs-rate{display:inline-flex;align-items:center;gap:3px;font:800 14px Poppins,sans-serif;color:#2b3a57}
+.zs-rate b{color:#ffb800;font-weight:400;font-size:17px;line-height:1;text-shadow:0 1px 0 #c98a0033}
+.zs-rate em{font-style:normal}
+@media(max-width:700px){
+  .zs-meta{padding:0;gap:2px 8px;justify-content:space-between;margin:6px 0 2px}
+  .zs-proc{font-size:9.5px;gap:3px}.zs-proc svg{width:12px;height:12px}
+  .zs-rate{font-size:12px}.zs-rate b{font-size:15px}
+}
+
+/* ===== BLOK DISCORD + WHATSAPP (bawah web) ===== */
+.newsletter{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 0;padding:22px 26px}
+.newsletter .news-group{display:flex;align-items:center;gap:16px;flex:1 1 440px;min-width:0}
+.newsletter .news-group>div:nth-child(2){min-width:0;flex:1}
+.newsletter .news-wa{padding-left:28px;margin-left:28px;border-left:2px dashed #b9d8f2}
+.newsletter .news-wa .news-icon.wa{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex:0 0 auto;background:#dcf8e6;color:#16a34a}
+.newsletter .news-wa .news-icon.wa svg{width:30px;height:30px;fill:currentColor}
+.newsletter .news-join{flex:0 0 auto}
+.news-wa-btn{background:#22c55e!important;box-shadow:0 4px 0 #15803d!important;position:relative;overflow:hidden}
+.news-wa-btn:hover{box-shadow:0 6px 0 #15803d!important;transform:translateY(-2px)}
+.news-wa-btn:after,.news-join:not(.news-wa-btn):after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;pointer-events:none;
+  background:linear-gradient(105deg,transparent,#ffffff80,transparent);transform:skewX(-20deg);animation:btnShine 3.6s ease-in-out infinite}
+.news-join{position:relative;overflow:hidden}
+.news-wa .news-icon.wa{animation:waRing 2.4s ease-out infinite}
+@keyframes waRing{0%{box-shadow:0 0 0 0 #22c55e66}70%{box-shadow:0 0 0 14px #22c55e00}100%{box-shadow:0 0 0 0 #22c55e00}}
+@media(max-width:900px){.newsletter .news-wa{border-left:0;margin-left:0;padding-left:0;border-top:2px dashed #b9d8f2;padding-top:18px;flex-basis:100%}.newsletter .news-group{flex-basis:100%}}
+@media(max-width:520px){.newsletter .news-group{flex-wrap:wrap}.newsletter .news-join{width:100%;justify-content:center}}
+
+/* ===== EFEK TAMBAHAN (lebih terlihat, tetap halus) ===== */
+.fx-bits i{box-shadow:0 0 8px #ffffff55}
+.fx-bits i.c1{background:#7cf0ff99;box-shadow:0 0 10px #7cf0ff88}
+.fx-bits i.c2{background:#ffd23fa0;box-shadow:0 0 10px #ffd23f77}
+.fx-bits i.c3{background:#ffffffa0}
+.fx-bits i.sw{animation-name:fxRise,fxSway;animation-duration:var(--t),4.5s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite}
+@keyframes fxSway{0%,100%{margin-left:0}50%{margin-left:26px}}
+.fx-glow{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;mix-blend-mode:soft-light;opacity:.6}
+.fx-glow b{position:absolute;width:46vmax;height:46vmax;border-radius:50%;filter:blur(70px);opacity:.55}
+.fx-glow b:nth-child(1){left:-12vmax;top:5vh;background:#46d1ff;animation:glowA 22s ease-in-out infinite alternate}
+.fx-glow b:nth-child(2){right:-14vmax;top:38vh;background:#8c6bff;animation:glowB 26s ease-in-out infinite alternate}
+.fx-glow b:nth-child(3){left:28vw;bottom:-22vmax;background:#2dffb0;animation:glowA 30s ease-in-out infinite alternate-reverse}
+@keyframes glowA{to{transform:translate(18vw,14vh) scale(1.15)}}
+@keyframes glowB{to{transform:translate(-20vw,-12vh) scale(1.2)}}
+.collab-banner{animation:bnFloat 6s ease-in-out infinite}
+@keyframes bnFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.sv-card.product-card.shine-now:after{animation:cardShine .9s ease-out}
+.sv-card.product-card .btn-buy,.sv-card.product-card .buy-btn{transition:transform .2s,box-shadow .2s}
+.sv-card.product-card:hover .btn-buy,.sv-card.product-card:hover .buy-btn{transform:translateY(-2px)}
+.zs-meta .zs-proc.fast svg{animation:zap 1.8s ease-in-out infinite}
+@keyframes zap{0%,100%{transform:scale(1) rotate(0)}45%{transform:scale(1.25) rotate(-8deg)}60%{transform:scale(1)}}
+.zs-meta .zs-rate .st5,.zs-meta .zs-rate .st1{animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{filter:none}50%{filter:brightness(1.35) drop-shadow(0 0 4px #ffcf33)}}
+.fx-spark{position:fixed;z-index:9998;pointer-events:none;width:7px;height:7px;border-radius:2px;background:#ffe27a;box-shadow:0 0 8px #ffd23f;
+  animation:sparkOut .8s ease-out forwards}
+@keyframes sparkOut{to{transform:translate(var(--dx),var(--dy)) scale(.2) rotate(120deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.fx-glow b,.collab-banner,.news-wa .news-icon.wa,.zs-meta .zs-proc.fast svg,.zs-rate b{animation:none!important}}
