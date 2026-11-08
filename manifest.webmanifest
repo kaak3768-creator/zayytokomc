@@ -1,0 +1,11 @@
+{
+  "name": "ZayyStore — Minecraft Digital Store",
+  "short_name": "ZayyStore",
+  "description": "Toko digital Minecraft: akun, skin, server, plugin & mod. Order otomatis 24/7, bayar QRIS.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b2447",
+  "theme_color": "#0b2447",
+  "lang": "id",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

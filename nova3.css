@@ -1,0 +1,45 @@
+/* ZayyStore — putaran ke-7 (nova3.js). Aman dihapus bersama nova3.js + barisnya di index.html (+ #novaHello, .nova-scroll, .nova-wave). */
+
+/* ---------- sapaan di hero ---------- */
+.nova-hello{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;padding:7px 16px 7px 12px;border-radius:30px;background:#0b2447a6;backdrop-filter:blur(8px);
+  box-shadow:inset 0 0 0 1px #ffffff40,0 6px 16px #0004;font:700 13px Poppins,sans-serif;color:#fff}
+.nova-hello i{width:10px;height:10px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 #4ade80aa;animation:novaPing 1.8s infinite}
+@keyframes novaPing{70%{box-shadow:0 0 0 9px #4ade8000}100%{box-shadow:0 0 0 0 #4ade8000}}
+
+/* ---------- penunjuk gulir ---------- */
+.nova-scroll{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;display:grid;justify-items:center;gap:6px;text-decoration:none;color:#fff;font:700 10.5px Poppins,sans-serif;letter-spacing:1.4px;text-transform:uppercase;opacity:.9}
+.nova-scroll i{width:24px;height:38px;border-radius:14px;box-shadow:inset 0 0 0 2px #fff;position:relative}
+.nova-scroll i:after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:3px;background:#ffd23f;animation:novaWheel 1.6s ease-in-out infinite}
+@keyframes novaWheel{0%{transform:translateY(0);opacity:1}80%{transform:translateY(13px);opacity:0}100%{opacity:0}}
+@media(max-width:900px){.nova-scroll{display:none}}
+
+/* ---------- header mengecil saat di-scroll ---------- */
+.sv-header{transition:height .3s,top .3s,box-shadow .3s,background .3s}
+.sv-header.nova-shrink{height:56px;top:8px;box-shadow:0 12px 30px #0006,0 0 0 1px #3db2ff40}
+.sv-header.nova-shrink .brand-mark{transform:scale(.88)}
+.brand-mark{transition:transform .3s}
+
+/* ---------- kartu produk muncul bergantian ---------- */
+.product-card.nova-pre{opacity:0}
+.product-card.nova-in{animation:novaCardIn .65s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:var(--rd,0s)}
+@keyframes novaCardIn{from{opacity:0;transform:translateY(34px) scale(.95)}}
+
+/* ---------- cara belanja: langkah menyala bergantian ---------- */
+.nova-js .sv-section .how-card.nova-rv.in.nova-on{transform:translateY(-8px);box-shadow:0 0 0 3px #ffd23f,0 0 34px 4px #ffd23f88,0 18px 36px #00000035}
+.how-card.nova-on i{background:linear-gradient(145deg,#ffe27a,#ffb300)!important;color:#4a3500!important;transform:scale(1.18) rotate(-6deg)!important;box-shadow:0 6px 16px #ffb30088!important}
+.how-card{transition:transform .35s,box-shadow .35s}
+
+/* ---------- cari di FAQ ---------- */
+.nova-faqsearch{max-width:860px;margin:0 auto 14px;position:relative}
+.nova-faqsearch:before{content:"⌕";position:absolute;left:18px;top:50%;transform:translateY(-52%);font-size:20px;color:#0a73c4}
+.nova-faqsearch input{width:100%;height:50px;border:0;border-radius:16px;padding:0 18px 0 46px;font:600 14.5px Poppins,sans-serif;color:#0b2447;background:#fff;box-shadow:0 5px 0 #b8d4f0,0 12px 22px #0a2a5a22;outline:none;transition:box-shadow .25s}
+.nova-faqsearch input:focus{box-shadow:0 5px 0 #0a73c4,0 0 0 3px #8be0ff,0 12px 22px #0a2a5a33}
+.nova-faqnone{max-width:860px;margin:6px auto 0;text-align:center;color:#fff;font:600 14px Poppins,sans-serif;padding:14px}
+.zs-faq details.nova-hide{display:none!important}
+
+/* ---------- gelombang sebelum footer ---------- */
+.nova-wave{height:60px;margin-top:10px;line-height:0;pointer-events:none}
+.nova-wave svg{display:block;width:100%;height:100%}
+.sv-footer{margin-top:-1px}
+
+@media(prefers-reduced-motion:reduce){.nova-hello i,.nova-scroll i:after{animation:none}.product-card.nova-in{animation:none}.product-card.nova-pre{opacity:1}}

@@ -1,0 +1,35 @@
+/* ZayyStore — tambahan putaran ke-3 (more.js). Aman dihapus bersama more.js + 2 barisnya di index.html */
+
+/* running text */
+.zs-ticker{max-width:1400px;margin:14px auto 0;width:calc(100% - 28px);overflow:hidden;border-radius:14px;background:linear-gradient(90deg,#0b2447,#123a78,#0b2447);
+  box-shadow:inset 0 0 0 1px #ffffff2a,0 8px 18px #0003;position:relative}
+.zs-ticker:before,.zs-ticker:after{content:"";position:absolute;top:0;bottom:0;width:40px;z-index:2;pointer-events:none}
+.zs-ticker:before{left:0;background:linear-gradient(90deg,#0b2447,transparent)}.zs-ticker:after{right:0;background:linear-gradient(270deg,#0b2447,transparent)}
+.zs-track{display:flex;width:max-content;animation:tick 38s linear infinite}
+.zs-ticker:hover .zs-track{animation-play-state:paused}
+.zs-track span{color:#e8f3ff;font:700 13px Poppins,sans-serif;padding:11px 26px;white-space:nowrap}
+.zs-track span b{color:#ffd23f;letter-spacing:.5px}
+.zs-track span:after{content:"•";color:#46d1ff;margin-left:52px}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* urutkan */
+.sort-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.sort-bar em{font:700 12px Poppins,sans-serif;font-style:normal;color:#dff0ff;margin-right:2px}
+.sort-bar button{border:0;cursor:pointer;font:700 12.5px Poppins,sans-serif;padding:8px 15px;border-radius:30px;background:#ffffff2e;color:#fff;box-shadow:inset 0 0 0 1px #ffffff44;transition:.2s}
+.sort-bar button:hover{background:#ffffff45;transform:translateY(-1px)}
+.sort-bar button.on{background:#fff;color:#0a5aa3;box-shadow:0 3px 0 #b8c8e6}
+/* terbang ke keranjang */
+.zs-fly{position:fixed;z-index:99998;width:26px;height:26px;border-radius:50%;pointer-events:none;display:grid;place-items:center;font-size:15px;
+  background:#ffd23f;box-shadow:0 0 16px #ffd23f;left:0;top:0}
+/* FAQ */
+.zs-faq{display:grid;gap:12px;max-width:860px;margin:0 auto}
+.zs-faq details{background:#fff;border-radius:16px;box-shadow:0 5px 0 #b8d4f0,0 12px 22px #0a2a5a22;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.zs-faq details:hover{transform:translateY(-2px)}
+.zs-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 20px;font:700 15px Poppins,sans-serif;color:#0b2447}
+.zs-faq summary::-webkit-details-marker{display:none}
+.zs-faq summary:after{content:"+";flex:0 0 auto;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#e3f2ff;color:#0a73c4;font:800 20px Poppins,sans-serif;transition:transform .3s,background .3s}
+.zs-faq details[open] summary:after{transform:rotate(135deg);background:#0a73c4;color:#fff}
+.zs-faq details[open]{box-shadow:0 5px 0 #0a73c4,0 14px 26px #0a2a5a33}
+.zs-faq p{margin:0;padding:0 20px 18px;font:500 14px/1.65 Poppins,sans-serif;color:#4a5b78;animation:faqIn .35s ease}
+@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.zs-track span{font-size:12px;padding:10px 18px}.zs-faq summary{font-size:14px;padding:14px 16px}}
+@media(prefers-reduced-motion:reduce){.zs-track{animation:none}.zs-faq p{animation:none}}

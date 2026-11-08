@@ -1,0 +1,37 @@
+/* ZayyStore — putaran ke-6 (nova2.js). Aman dihapus bersama nova2.js + barisnya di index.html (+ blok HTML bertanda "nova2"). */
+
+/* ---------- pita ajakan sebelum footer ---------- */
+.nova-cta{position:relative;overflow:hidden;max-width:1100px;margin:0 auto 54px;padding:30px 28px;border-radius:26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  background:linear-gradient(120deg,#ff9a3c,#ff4f81 55%,#8e54e9);color:#fff;box-shadow:0 8px 0 #9b2d63,0 22px 40px #0a2a5a45,inset 0 0 0 1.5px #ffffff55}
+.nova-cta:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 20%,#ffffff40,transparent 40%),radial-gradient(circle at 90% 90%,#ffffff2e,transparent 40%);pointer-events:none}
+.nova-cta>*{position:relative}
+.nova-cta h3{margin:0 0 4px;font:400 clamp(22px,3vw,30px) "Lilita One",Poppins,sans-serif;text-shadow:0 3px 0 #0003}
+.nova-cta p{margin:0;font:500 14px/1.5 Poppins,sans-serif;color:#fff;max-width:520px}
+.nova-cta a{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:16px;background:#fff;color:#c2255c;font:800 14.5px Poppins,sans-serif;text-decoration:none;box-shadow:0 5px 0 #d9b8cc;transition:transform .2s,box-shadow .2s}
+.nova-cta a:hover{transform:translateY(-3px);box-shadow:0 8px 0 #d9b8cc,0 0 26px #fff9}
+
+/* ---------- label stok menipis ---------- */
+.sv-stock.low{color:#c2410c!important;font-weight:800;animation:novaPulse 1.6s ease-in-out infinite}
+@keyframes novaPulse{50%{opacity:.55}}
+
+/* ---------- pixel burst saat klik ---------- */
+.nova-px{position:fixed;z-index:3000;pointer-events:none;border-radius:2px;box-shadow:0 0 0 1px #0003}
+
+/* ---------- tombol mode malam ---------- */
+#novaTheme{font-size:17px;line-height:1}
+html.nova-night body{background:radial-gradient(1000px 500px at 50% -120px,#2b4a9c 0%,transparent 70%),linear-gradient(#0c1a3d,#0a1530 50%,#060e24);background-attachment:fixed}
+html.nova-night{background:#060e24}
+html.nova-night body:before{background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px)}
+html.nova-night .sv-hero-bg{filter:saturate(.9) brightness(.75)}
+html.nova-night .nova-stat{background:linear-gradient(160deg,#ffffff1c,#ffffff08)}
+html.nova-night .sv-bits i{background:#ffe9a6!important;box-shadow:0 0 8px #ffe9a6}
+html.nova-night .sort-bar button,html.nova-night .nova-recent{background:#ffffff18}
+html.nova-night .sort-bar button.on{background:#fff}
+
+/* ---------- responsif ---------- */
+@media(max-width:700px){.nova-cta{padding:24px 20px}.nova-cta a{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.sv-stock.low{animation:none}.nova-why-card i{animation:none}}
+
+/* tombol mode malam tetap tampil di HP */
+#novaTheme{display:grid!important;place-items:center;width:40px;padding:0;border:0;cursor:pointer;color:#fff}
+@media(max-width:560px){.sv-actions{gap:6px}#novaTheme{width:38px}}
